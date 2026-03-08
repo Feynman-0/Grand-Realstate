@@ -1,3 +1,4 @@
+import { CircleCheck, Info } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import GoldDivider from "@/components/GoldDivider";
@@ -154,13 +155,13 @@ const About = () => {
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
-              { icon: "✅", text: "Water & Scavenger Services Included" },
-              { icon: "✅", text: "Professional Building Maintenance Included" },
-              { icon: "ℹ️", text: "Tenants responsible for: Gas, Electric, Wi-Fi, Renter's Insurance" },
+              { icon: <CircleCheck size={22} className="text-gold" />, text: "Water & Scavenger Services Included" },
+              { icon: <CircleCheck size={22} className="text-gold" />, text: "Professional Building Maintenance Included" },
+              { icon: <Info size={22} className="text-gold" />, text: "Tenants responsible for: Gas, Electric, Wi-Fi, Renter's Insurance" },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="bg-background p-8 rounded-sm border border-border">
-                  <p className="text-2xl mb-3">{item.icon}</p>
+                  <div className="mb-3 flex justify-center">{item.icon}</div>
                   <p className="font-body text-sm text-body/80">{item.text}</p>
                 </div>
               </AnimatedSection>
