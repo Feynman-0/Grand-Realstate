@@ -1,3 +1,4 @@
+import { CircleCheck, Info } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import GoldDivider from "@/components/GoldDivider";
