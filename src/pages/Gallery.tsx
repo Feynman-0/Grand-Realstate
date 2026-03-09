@@ -21,6 +21,7 @@ const interiorImages = [
   { src: brochure2, alt: "Living room" },
   { src: brochure5, alt: "Master bedroom" },
   { src: brochure6, alt: "Second bedroom" },
+  { src: brochure14, alt: "Building entrance & mailroom" },
   { src: brochure8, alt: "Laundry room" },
 ];
 
