@@ -23,21 +23,7 @@ const galleryImages = [
   { url: "/gallery/Brochure 17.jpg", category: "Turf & Amenity" },
   { url: "/gallery/Brochure 18.jpg", category: "Interior" },
   { url: "/gallery/Brochure 20.jpg", category: "Interior" },
-  { url: "/gallery/exterior 1.jpg", category: "Exterior" },
-  { url: "/rendered/The Grand Stone Final New Price-06.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-07.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-08.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-09.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-10.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-11.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-12.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-13.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-14.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-15.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-16.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-17.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-18.jpg", category: "Render" },
-  { url: "/rendered/The Grand Stone Final New Price-19.jpg", category: "Render" },
+  { url: "/gallery/guest closet .jpg", category: "Interior" },
 ];
 
 const Gallery = () => {

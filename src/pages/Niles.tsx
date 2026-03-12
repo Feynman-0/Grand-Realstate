@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import exterior1 from "@/assets/exterior_1.jpg";
+import exterior1 from "@/assets/exterior_no_snow.jpg";
 
 const neighborhoodItems = [
   {

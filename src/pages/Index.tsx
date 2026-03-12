@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, Home, Car, WashingMachine, PawPrint, MapPin, ShoppingBag, TreePine, Bus, Plane, Trophy } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import GoldDivider from "@/components/GoldDivider";
-import exteriorImg from "@/assets/exterior_1.jpg";
+import exteriorImg from "@/assets/exterior_no_snow.jpg";
 import brochure1 from "@/assets/brochure_1.jpg";
 import brochure2 from "@/assets/brochure_2.jpg";
 import brochure5 from "@/assets/brochure_5.jpg";
