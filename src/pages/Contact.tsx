@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import GoldDivider from "@/components/GoldDivider";
 import { Phone, Mail, Building2, MapPin } from "lucide-react";
 import { units } from "@/data/units";
+import logo from "/nea-maya-logo.jpg";
 import {
   Accordion,
   AccordionContent,
@@ -44,6 +46,18 @@ const Contact = () => {
     message: "",
   });
 
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const unitId = searchParams.get("unit");
+    if (unitId) {
+      const selectedUnit = units.find(u => u.id === unitId);
+      if (selectedUnit) {
+        setForm(prev => ({ ...prev, unit: selectedUnit.name }));
+      }
+    }
+  }, [searchParams]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Build mailto
@@ -58,15 +72,18 @@ const Contact = () => {
   return (
     <>
       {/* Hero */}
-      <section className="bg-charcoal py-32 md:py-40 flex items-center justify-center relative overflow-hidden">
+      <section className="bg-charcoal py-24 md:py-32 flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--gold))_1px,transparent_1px)] bg-[length:30px_30px]" />
         <div className="text-center px-6 relative z-10">
           <AnimatedSection>
-            <h1 className="section-heading-light mb-4">
-              Begin Your Story at The Grand Stone
+            <div className="mb-8 flex justify-center">
+              <img src={logo} alt="Nea Maya Logo" className="h-16 md:h-20 w-auto" />
+            </div>
+            <h1 className="section-heading-light mb-4 text-4xl md:text-5xl">
+              Apply to The Grand Stone
             </h1>
             <p className="font-sans text-sm uppercase tracking-[0.2em] text-gold">
-              We'd love to hear from you
+              Your future home awaits
             </p>
           </AnimatedSection>
         </div>
@@ -102,22 +119,24 @@ const Contact = () => {
 
                 <div className="gold-hr !w-full !mx-0 mb-6 opacity-30" />
 
-                <p className="font-body text-xs italic text-muted-foreground mb-8">
-                  Whether you have a question about a floor plan or are ready to schedule a private tour — we make the process effortless.
+                <p className="font-body text-sm text-body/80 mb-8">
+                  Please use the form to the right to submit your application details. Once received, our team will reach out to schedule a tour and complete the next steps.
                 </p>
-
-                <a
-                  href="mailto:Aida@neamaya.com?subject=Application Inquiry — The Grand Stone"
-                  className="btn-gold w-full text-center rounded-sm block"
-                >
-                  APPLY NOW
-                </a>
+                
+                <div className="p-4 bg-warm-gray/30 border border-gold/20 rounded-sm">
+                  <p className="font-body text-xs text-muted-foreground uppercase tracking-wider mb-2">Requirements</p>
+                  <ul className="text-xs text-body/70 space-y-1">
+                    <li>• Two Person Max per Unit</li>
+                    <li>• 12 Month Lease Preferred</li>
+                    <li>• Pet Friendly (under 25 lbs)</li>
+                  </ul>
+                </div>
               </div>
             </AnimatedSection>
 
             {/* Right - Form */}
             <AnimatedSection delay={0.2}>
-              <div className="bg-card border border-border p-8 md:p-10 rounded-sm">
+              <div id="apply" className="bg-card border border-border p-8 md:p-10 rounded-sm">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label className="font-sans text-xs uppercase tracking-[0.15em] text-muted-foreground mb-2 block">
@@ -187,8 +206,8 @@ const Contact = () => {
                       className="w-full bg-background border border-border px-4 py-3 font-body text-sm text-body rounded-sm focus:outline-none focus:border-gold transition-colors resize-none"
                     />
                   </div>
-                  <button type="submit" className="btn-gold w-full rounded-sm">
-                    SEND MESSAGE
+                  <button type="submit" className="btn-gold w-full rounded-sm py-4 text-sm font-semibold tracking-[0.1em]">
+                    SUBMIT APPLICATION
                   </button>
                   <p className="text-center font-body text-xs text-muted-foreground">
                     Or call us directly: <a href="tel:847-987-9600" className="text-gold hover:underline">847-987-9600</a>

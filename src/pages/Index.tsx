@@ -8,6 +8,7 @@ import brochure1 from "@/assets/brochure_1.jpg";
 import brochure2 from "@/assets/brochure_2.jpg";
 import brochure5 from "@/assets/brochure_5.jpg";
 import brochure13 from "@/assets/brochure_13.jpg";
+import logo from "/nea-maya-logo.jpg";
 
 const Index = () => {
   return (
@@ -19,20 +20,33 @@ const Index = () => {
           style={{ backgroundImage: `url(${exteriorImg})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/30 to-charcoal/10" />
+        {/* Focused radial vignette centred on the headline */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse 70% 55% at 50% 48%, rgba(14,11,9,0.62) 0%, transparent 80%)' }}
+        />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-8"
+          >
+            <img src={logo} alt="Nea Maya Logo" className="h-16 md:h-20 w-auto" />
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="section-eyebrow mb-4"
+            className="section-eyebrow mb-4 hero-sub-shadow"
           >
-            NEA MAYA PRESENTS
+            PRESENTS
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-light-on-dark tracking-wide"
+            className="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-light-on-dark tracking-wide hero-title-shadow"
           >
             THE GRAND STONE
           </motion.h1>
@@ -40,7 +54,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="font-sans text-xs md:text-sm uppercase tracking-[0.3em] text-light-on-dark/70 mt-3"
+            className="font-sans text-xs md:text-sm uppercase tracking-[0.3em] text-light-on-dark/70 mt-3 hero-sub-shadow"
           >
             LUXURY APARTMENTS · NILES, ILLINOIS
           </motion.p>
@@ -80,7 +94,7 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="bg-background py-20 md:py-28">
+      <section className="bg-background py-12 md:py-16">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {[
@@ -104,7 +118,7 @@ const Index = () => {
       <GoldDivider />
 
       {/* The Story */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimatedSection>
@@ -120,7 +134,7 @@ const Index = () => {
             <AnimatedSection delay={0.2}>
               <p className="section-eyebrow mb-4">WELCOME HOME</p>
               <h2 className="section-heading mb-6">
-                Where Niles Meets Luxury Living
+                Where Luxury Meets Community
               </h2>
               <p className="font-body text-body/80 leading-relaxed mb-8">
                 The Grand Stone is a landmark residential development by Nea Maya Real Estate and Development LLC — a name synonymous with quality, vision, and community. Nestled in the heart of Niles, Illinois, just 15 miles northwest of downtown Chicago, The Grand Stone offers 12 meticulously designed two-bedroom residences where elevated finishes meet generous living spaces. This is not just an apartment — it is a statement.
@@ -139,7 +153,7 @@ const Index = () => {
       <GoldDivider />
 
       {/* Features Strip */}
-      <section className="bg-charcoal py-20 md:py-28">
+      <section className="bg-charcoal py-12 md:py-16">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
@@ -161,7 +175,7 @@ const Index = () => {
       </section>
 
       {/* Gallery Teaser */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[brochure1, brochure5, brochure13].map((img, i) => (
@@ -188,7 +202,7 @@ const Index = () => {
       <GoldDivider />
 
       {/* Location Teaser */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <AnimatedSection>
             <p className="section-eyebrow mb-4">LOCATION</p>
@@ -215,7 +229,7 @@ const Index = () => {
           </div>
           <AnimatedSection delay={0.3}>
             <Link
-              to="/about"
+              to="/niles"
               className="font-sans text-sm uppercase tracking-[0.15em] text-gold hover:text-gold-light transition-colors inline-flex items-center gap-2 mt-12"
             >
               Learn About Niles →

@@ -5,8 +5,7 @@ import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import GoldDivider from "@/components/GoldDivider";
 import { units, Unit } from "@/data/units";
-import floorplanImg from "@/assets/floorplan.jpg";
-import { Home, Sun, Shirt, WashingMachine, UtensilsCrossed, Gem, BedDouble, LayoutGrid, X, BedSingle, Bath, Maximize, CookingPot, DoorOpen, Phone, Mail } from "lucide-react";
+import { Home, Sun, Shirt, WashingMachine, UtensilsCrossed, Gem, BedDouble, LayoutGrid, X, BedSingle, Bath, Maximize, CookingPot, DoorOpen, Phone, Mail, Car } from "lucide-react";
 
 type Filter = "all" | "under3000" | "3000-3200" | "3200plus" | "largest" | "smallest";
 
@@ -30,9 +29,9 @@ const UnitDetailModal = ({ unit, onClose }: { unit: Unit; onClose: () => void })
         {/* Header */}
         <div className="relative">
           <img
-            src={floorplanImg}
+            src={unit.image}
             alt={`Floor plan for ${unit.name}`}
-            className="w-full h-64 md:h-80 object-cover"
+            className="w-full h-64 md:h-80 object-contain bg-warm-gray/10 py-4"
           />
           <button
             onClick={onClose}
@@ -63,6 +62,7 @@ const UnitDetailModal = ({ unit, onClose }: { unit: Unit; onClose: () => void })
               { icon: <BedDouble size={18} />, label: "2 Bedrooms" },
               { icon: <Bath size={18} />, label: "2 Bathrooms" },
               { icon: <Sun size={18} />, label: "Private Balcony" },
+              { icon: <Car size={18} />, label: "Indoor Garage" },
               { icon: <WashingMachine size={18} />, label: "In-Unit Laundry" },
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-2 bg-warm-gray/50 px-4 py-3 rounded-sm">
@@ -107,6 +107,7 @@ const UnitDetailModal = ({ unit, onClose }: { unit: Unit; onClose: () => void })
               "Open-concept living & dining",
               "King-size ready bedrooms",
               "Indoor heated garage parking",
+              "Private balcony with every unit",
             ].map((f, i) => (
               <div key={i} className="flex items-center gap-2">
                 <span className="text-gold text-xs">◆</span>
@@ -119,12 +120,12 @@ const UnitDetailModal = ({ unit, onClose }: { unit: Unit; onClose: () => void })
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="mailto:Aida@neamaya.com?subject=Inquiry — The Grand Stone ${unit.name}"
-              className="btn-gold rounded-sm flex-1 text-center"
+            <Link
+              to={`/contact?unit=${unit.id}#apply`}
+              className="btn-gold rounded-sm flex-1 text-center py-4"
             >
               Inquire About This Unit
-            </a>
+            </Link>
             <a
               href="tel:847-987-9600"
               className="btn-ghost-gold rounded-sm flex-1 text-center flex items-center justify-center gap-2"
@@ -214,9 +215,9 @@ const Layouts = () => {
                 <div className="group bg-card border border-border rounded-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:border-gold/40 hover:-translate-y-1">
                   <div className="relative overflow-hidden">
                     <img
-                      src={floorplanImg}
+                      src={unit.image}
                       alt={`Floor plan for ${unit.name}`}
-                      className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-48 object-contain bg-warm-gray/10 py-2 transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                     <span className="absolute top-4 left-4 bg-gold text-charcoal font-sans text-[10px] uppercase tracking-[0.2em] font-semibold px-3 py-1">
@@ -229,12 +230,12 @@ const Layouts = () => {
                         {unit.sqft.toLocaleString()} sq.ft.
                       </span>
                       <span className="font-serif text-xl text-gold font-semibold">
-                        ${unit.price.toLocaleString()}/mo
+                        ${unit.price.toLocaleString()}
                       </span>
                     </div>
-                    <div className="gold-hr !w-full !mx-0 mb-3 opacity-30" />
-                    <p className="font-body text-xs text-muted-foreground mb-4">
-                      2 Bed · 2 Bath · Balcony · In-Unit Laundry
+                    <div className="gold-hr !w-full !mx-0 mb-2 opacity-30" />
+                    <p className="font-body text-[10px] text-muted-foreground mb-3 leading-tight">
+                      2 Bed · 2 Bath · Balcony · Indoor Garage · In-Unit Laundry
                       {unit.walkInClosets > 1 ? ` · ${unit.walkInClosets} Walk-in Closets` : " · Walk-in Closet"}
                     </p>
                     <button
@@ -261,14 +262,14 @@ const Layouts = () => {
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: <LayoutGrid size={24} />, label: "Open-concept Living & Dining" },
-              { icon: <Sun size={24} />, label: "Private Balcony" },
+              { icon: <Sun size={24} />, label: "Private Balconies" },
+              { icon: <Car size={24} />, label: "Indoor Heated Garage" },
               { icon: <Shirt size={24} />, label: "Walk-in Closet(s)" },
               { icon: <WashingMachine size={24} />, label: "In-Unit Laundry Room" },
               { icon: <UtensilsCrossed size={24} />, label: "GE Appliances + Dishwasher" },
               { icon: <Gem size={24} />, label: "Quartz Countertops" },
               { icon: <BedDouble size={24} />, label: "King-size Ready Bedrooms" },
-              { icon: <Home size={24} />, label: "Flexible Layout Options" },
+              { icon: <Home size={24} />, label: "Flexible 2-Bed Layouts" },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="text-center">

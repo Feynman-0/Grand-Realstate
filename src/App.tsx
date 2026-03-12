@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Layouts from "./pages/Layouts";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Niles from "./pages/Niles";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -41,6 +42,7 @@ const AnimatedRoutes = () => {
           <Route path="/layouts" element={<Layouts />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/niles" element={<Niles />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>

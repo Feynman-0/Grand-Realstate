@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logo from "/nea-maya-logo.jpg";
 
 interface PageHeroProps {
   eyebrow: string;
@@ -8,8 +9,16 @@ interface PageHeroProps {
 
 const PageHero = ({ eyebrow, title, subtitle }: PageHeroProps) => {
   return (
-    <section className="bg-charcoal py-32 md:py-40 flex items-center justify-center">
+    <section className="bg-charcoal py-24 md:py-32 flex items-center justify-center">
       <div className="text-center px-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 flex justify-center"
+        >
+          <img src={logo} alt="Nea Maya Logo" className="h-16 md:h-20 w-auto" />
+        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

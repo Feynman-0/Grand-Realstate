@@ -28,6 +28,7 @@ const Footer = () => {
                 { label: "Home", path: "/" },
                 { label: "About", path: "/about" },
                 { label: "Floor Plans", path: "/layouts" },
+                { label: "Niles", path: "/niles" },
                 { label: "Gallery", path: "/gallery" },
                 { label: "Contact", path: "/contact" },
               ].map((link) => (

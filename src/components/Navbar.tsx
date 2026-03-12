@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Layouts", path: "/layouts" },
+  { label: "Niles", path: "/niles" },
   { label: "Gallery", path: "/gallery" },
   { label: "Contact", path: "/contact" },
 ];
@@ -60,22 +61,22 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <a
-            href="mailto:Aida@neamaya.com?subject=Application Inquiry — The Grand Stone"
+          <Link
+            to="/contact#apply"
             className="btn-gold text-xs py-2 px-6 rounded-sm"
           >
             Apply Now
-          </a>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
         <div className="lg:hidden flex items-center gap-4">
-          <a
-            href="mailto:Aida@neamaya.com?subject=Application Inquiry — The Grand Stone"
+          <Link
+            to="/contact#apply"
             className="btn-gold text-[10px] py-2 px-4 rounded-sm"
           >
             Apply Now
-          </a>
+          </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-light-on-dark"
