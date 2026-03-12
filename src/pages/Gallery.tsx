@@ -4,6 +4,7 @@ import GoldDivider from "@/components/GoldDivider";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const galleryImages = [
   { url: "/gallery/brochure 1.jpg", category: "Interior" },
@@ -135,9 +136,9 @@ const Gallery = () => {
 
       <section className="bg-charcoal py-20 text-center">
         <h2 className="section-heading-light mb-6">Want to See It in Person?</h2>
-        <a href="/contact" className="btn-gold rounded-sm px-10">
+        <Link to="/contact#apply" className="btn-gold rounded-sm px-10">
           Book a Private Tour
-        </a>
+        </Link>
       </section>
     </>
   );
