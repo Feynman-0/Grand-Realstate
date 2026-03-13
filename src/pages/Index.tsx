@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, Home, Car, WashingMachine, PawPrint, MapPin, ShoppingBag, TreePine, Bus, Plane, Trophy } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import GoldDivider from "@/components/GoldDivider";
-import exteriorImg from "@/assets/exterior_no_snow.jpg";
+import heroBg from "@/assets/projrct image.jpeg";
 import brochure1 from "@/assets/brochure_1.jpg";
 import brochure2 from "@/assets/brochure_2.jpg";
 import brochure5 from "@/assets/brochure_5.jpg";
@@ -17,7 +17,7 @@ const Index = () => {
       <section className="relative h-screen w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${exteriorImg})` }}
+          style={{ backgroundImage: `url(${heroBg})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/30 to-charcoal/10" />
         {/* Focused radial vignette centred on the headline */}
